@@ -1,5 +1,5 @@
 @import "~antd/dist/antd.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap");
 .site-page-header {
   border: 1px solid rgb(235, 237, 240);
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
@@ -14,4 +14,19 @@
 }
 .lists-items > * {
   margin: 0.6rem;
+}
+.item-card .ant-card-meta-detail > div,
+.item-card .ant-card-meta-description {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.item-card .ant-card-meta-detail > div:not(:last-child) {
+  margin-bottom: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+.item-card .ant-card-meta-description {
+  color: black;
 }

@@ -4,11 +4,11 @@ import { Card } from "antd";
 const { Meta } = Card;
 const Item = () => {
   return (
-    <div>
+    <div className="item-card">
       <Card
         hoverable
         style={{
-          width: 240,
+          width: 300,
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         }}
         cover={
@@ -18,7 +18,11 @@ const Item = () => {
           />
         }
       >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
+        <Meta
+          title="Mens Casual Premium Slim Fit T-shirts"
+          description={`$ 22.3`}
+        />
+        <span style={{ color: "#ccc" }}>men clothing</span>
       </Card>
     </div>
   );
