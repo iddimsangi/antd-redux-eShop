@@ -21,12 +21,36 @@
   font-weight: 600;
   font-size: 1.1rem;
 }
-
+.item-details .ant-btn {
+  padding: 0.5rem 1.2rem;
+  height: 2.5rem;
+}
 .item-card .ant-card-meta-detail > div:not(:last-child) {
   margin-bottom: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
+.my-card-header .ant-card-meta-title {
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
 .item-card .ant-card-meta-description {
   color: black;
+}
+.my-card .ant-card-head-title {
+  background-color: #f0f3f4;
+  padding: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  color: rgb(189, 124, 39);
+}
+.my-card .ant-card-head {
+  padding: 0;
+}
+.my-card .ant-card-body {
+  padding: 1rem 0;
+}
+.my-card .ant-btn {
+  width: 50%;
 }
