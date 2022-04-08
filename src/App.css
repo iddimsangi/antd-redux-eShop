@@ -2,4 +2,16 @@
 
 .site-page-header {
   border: 1px solid rgb(235, 237, 240);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+.lists-items {
+  padding: 0.6rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+.lists-items > * {
+  margin: 0.6rem;
 }
