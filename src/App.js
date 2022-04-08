@@ -11,7 +11,7 @@ function App() {
         <PageHeader className="site-page-header" title="eShop" />
         <Routes>
           <Route path="/" element={<ListsItems />} />
-          <Route path="/item" element={<ItemDetails />} />
+          <Route path="/item/:itemId" element={<ItemDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
