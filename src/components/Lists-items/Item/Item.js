@@ -2,7 +2,8 @@ import React from "react";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 const { Meta } = Card;
-const Item = () => {
+const Item = ({ product }) => {
+  const { category, description, id, image, price, title } = product;
   return (
     <div className="item-card">
       <Card
@@ -11,18 +12,10 @@ const Item = () => {
           width: 300,
           boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         }}
-        cover={
-          <img
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
+        cover={<img alt="example" src={image} />}
       >
-        <Meta
-          title="Mens Casual Premium Slim Fit T-shirts"
-          description={`$ 22.3`}
-        />
-        <span style={{ color: "#ccc" }}>men clothing</span>
+        <Meta title={title} description={` $ ${price}`} />
+        <span style={{ color: "#ccc" }}>{category}</span>
       </Card>
     </div>
   );
