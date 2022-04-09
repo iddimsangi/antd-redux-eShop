@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 const { Meta } = Card;
+
 const Item = ({ product }) => {
   const { category, description, id, image, price, title } = product;
   return (

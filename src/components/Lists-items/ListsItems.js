@@ -17,12 +17,13 @@ const ListsItems = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
-  const renderedItems = () =>
-    products.map((product) => <Item product={product} />);
-  return <div className="lists-items">{renderedItems()}</div>;
+  return (
+    <div className="lists-items">
+      {products.map((product) => (
+        <Item product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default ListsItems;

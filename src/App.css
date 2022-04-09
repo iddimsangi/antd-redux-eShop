@@ -35,6 +35,9 @@
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
+.item-card .ant-card-cover > * {
+  height: 400px;
+}
 .item-card .ant-card-meta-description {
   color: black;
 }
@@ -54,3 +57,5 @@
 .my-card .ant-btn {
   width: 50%;
 }
+/* 
+*/
