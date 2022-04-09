@@ -20,7 +20,7 @@ const ListsItems = () => {
   return (
     <div className="lists-items">
       {products.map((product) => (
-        <Item product={product} />
+        <Item product={product} key={product.id} />
       ))}
     </div>
   );

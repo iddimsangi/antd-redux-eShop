@@ -8,6 +8,7 @@ const Item = ({ product }) => {
   return (
     <div className="item-card">
       <Card
+        key={id}
         hoverable
         style={{
           width: 300,
