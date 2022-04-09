@@ -7,10 +7,13 @@
 .lists-items {
   padding: 0.6rem;
   display: flex;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   justify-content: center;
   height: 100vh;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  margin: 1rem auto;
 }
 .lists-items > * {
   margin: 0.6rem;
@@ -35,6 +38,9 @@
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
+.item-card .ant-card-cover > * {
+  height: 350px;
+}
 .item-card .ant-card-meta-description {
   color: black;
 }
@@ -54,3 +60,5 @@
 .my-card .ant-btn {
   width: 50%;
 }
+/* 
+*/
