@@ -8,6 +8,7 @@
 }
 .spinner-container {
   position: relative;
+  height: 50vh;
 }
 .loading-spinner {
   width: 50px;

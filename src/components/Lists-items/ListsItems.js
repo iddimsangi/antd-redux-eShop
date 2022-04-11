@@ -3,7 +3,7 @@ import Item from "./Item/Item";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/actions/actions";
-
+import LoadingSpinner from "../loading-spinner/LoadingSpinner";
 const ListsItems = () => {
   const products = useSelector((state) => state.allProducts.products);
 
@@ -17,11 +17,14 @@ const ListsItems = () => {
     fetchData();
   }, []);
 
+  // const listsItems =;
   return (
     <div className="lists-items">
-      {products.map((product) => (
-        <Item product={product} key={product.id} />
-      ))}
+      {products.length === 0 ? (
+        <LoadingSpinner />
+      ) : (
+        products.map((product) => <Item product={product} key={product.id} />)
+      )}
     </div>
   );
 };
