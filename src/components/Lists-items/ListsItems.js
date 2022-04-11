@@ -17,7 +17,6 @@ const ListsItems = () => {
     fetchData();
   }, []);
 
-  // const listsItems =;
   return (
     <div className="lists-items">
       {products.length === 0 ? (
