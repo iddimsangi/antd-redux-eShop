@@ -4,10 +4,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedProduct } from "../../redux/actions/actions";
+import LoadingSpinner from "../loading-spinner/LoadingSpinner";
 const { Meta } = Card;
 const ItemDetails = () => {
   const paramId = useParams();
   const dispatch = useDispatch();
+  const product = useSelector((state) => state.product);
+  const { description, image, price, title } = product;
+  console.log(product);
   console.log(paramId.itemId);
   const fetchProduct = async () => {
     const response = await axios
@@ -21,7 +25,9 @@ const ItemDetails = () => {
   useEffect(() => {
     if (paramId && paramId !== "") fetchProduct();
   }, [paramId]);
-  return (
+  return Object.keys(product).length === 0 ? (
+    <LoadingSpinner />
+  ) : (
     <div
       style={{
         display: "flex",
@@ -40,12 +46,7 @@ const ItemDetails = () => {
         style={{
           width: "50%",
         }}
-        cover={
-          <img
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
+        cover={<img alt="example" src={image} />}
       ></Card>
       <div
         style={{
@@ -56,7 +57,7 @@ const ItemDetails = () => {
         }}
       >
         <div className="my-card-header" style={{ marginBottom: "1.5rem" }}>
-          <Meta title="Mens Casual Premium" />
+          <Meta title={title} />
           <Button
             type="default"
             style={{
@@ -65,16 +66,12 @@ const ItemDetails = () => {
               color: "#fff",
             }}
           >
-            $ 56.89
+            $ {price}
           </Button>
         </div>
         <div className="site-card-border-less-wrapper my-card">
-          <Card title="men clothing" bordered={false} style={{ width: "100%" }}>
-            <p>
-              He went such dare good mr fact. The small own seven saved man age
-              ﻿no offer. Suspicion did mrs nor furniture smallness. Scale whole
-              instrument. Gentleman eat and consisted are pronounce distrusts.
-            </p>
+          <Card title={title} bordered={false} style={{ width: "100%" }}>
+            <p>{description}</p>
             <Button type="danger">Add to Cart</Button>
           </Card>
         </div>
