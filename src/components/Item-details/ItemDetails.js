@@ -5,12 +5,14 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedProduct } from "../../redux/actions/actions";
 import LoadingSpinner from "../loading-spinner/LoadingSpinner";
+import { removeSelectedProduct } from "../../redux/actions/actions";
 const { Meta } = Card;
 const ItemDetails = () => {
   const paramId = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
   const { description, image, price, title } = product;
+
   console.log(product);
   console.log(paramId.itemId);
   const fetchProduct = async () => {
@@ -24,6 +26,7 @@ const ItemDetails = () => {
   };
   useEffect(() => {
     if (paramId && paramId !== "") fetchProduct();
+    dispatch(removeSelectedProduct());
   }, [paramId]);
   return Object.keys(product).length === 0 ? (
     <LoadingSpinner />
