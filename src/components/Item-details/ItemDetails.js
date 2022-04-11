@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "antd";
-
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedProduct } from "../../redux/actions/actions";
 const { Meta } = Card;
 const ItemDetails = () => {
+  const paramId = useParams();
+  const dispatch = useDispatch();
+  console.log(paramId.itemId);
+  const fetchProduct = async () => {
+    const response = await axios
+      .get(`https://fakestoreapi.com/products/${paramId.itemId}`)
+      .catch((err) => {
+        console.log(err);
+      });
+    dispatch(setSelectedProduct(response.data));
+    console.log(response.data);
+  };
+  useEffect(() => {
+    if (paramId && paramId !== "") fetchProduct();
+  }, [paramId]);
   return (
     <div
       style={{
