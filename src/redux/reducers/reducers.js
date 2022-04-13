@@ -25,9 +25,10 @@ export const productReducer = (state = {}, { type, payload }) => {
     case actionsTypes.FETCH_PRODUCT:
       return {
         ...state,
-        product: payload,
+        ...payload,
       };
-
+    case actionsTypes.REMOVE_SELECTED_PRODUCT:
+      return {};
     default:
       return state;
   }
