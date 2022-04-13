@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "antd";
-
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProduct } from "../../redux/actions/actions";
 const { Meta } = Card;
+
 const ItemDetails = () => {
+  const productObj = useSelector((state) => state.product);
+  const { description, id, image, price, title } = productObj.product;
+
+  const paramId = useParams();
+  const dispatch = useDispatch();
+  console.log(paramId);
+  console.log(paramId.itemId);
+
+  useEffect(() => {
+    if (paramId && paramId !== "") dispatch(fetchProduct(paramId.itemId));
+    console.log(productObj.product);
+  }, [paramId]);
   return (
     <div
       style={{
@@ -22,12 +37,7 @@ const ItemDetails = () => {
         style={{
           width: "50%",
         }}
-        cover={
-          <img
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
+        cover={<img alt="example" src={image} />}
       ></Card>
       <div
         style={{
@@ -38,7 +48,7 @@ const ItemDetails = () => {
         }}
       >
         <div className="my-card-header" style={{ marginBottom: "1.5rem" }}>
-          <Meta title="Mens Casual Premium" />
+          <Meta title={title} />
           <Button
             type="default"
             style={{
@@ -47,16 +57,12 @@ const ItemDetails = () => {
               color: "#fff",
             }}
           >
-            $ 56.89
+            $ {price}
           </Button>
         </div>
         <div className="site-card-border-less-wrapper my-card">
-          <Card title="men clothing" bordered={false} style={{ width: "100%" }}>
-            <p>
-              He went such dare good mr fact. The small own seven saved man age
-              ﻿no offer. Suspicion did mrs nor furniture smallness. Scale whole
-              instrument. Gentleman eat and consisted are pronounce distrusts.
-            </p>
+          <Card title={title} bordered={false} style={{ width: "100%" }}>
+            <p>{description}</p>
             <Button type="danger">Add to Cart</Button>
           </Card>
         </div>

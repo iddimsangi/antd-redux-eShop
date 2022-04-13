@@ -9,7 +9,24 @@ export const productsReducer = (state = initialState, { type, payload }) => {
         ...state,
         products: payload,
       };
-      break;
+    case actionsTypes.FETCH_PRODUCTS:
+      return {
+        ...state,
+        products: payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const productReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case actionsTypes.FETCH_PRODUCT:
+      return {
+        ...state,
+        product: payload,
+      };
 
     default:
       return state;
